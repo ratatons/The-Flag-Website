@@ -203,6 +203,29 @@
   transform: translateY(-2px);
 }
 
+.lang-button {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.lang-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.lang-button:active {
+  transform: translateY(0);
+}
+
 /* Hero Content */
 .hero-content {
   flex: 1;
@@ -545,15 +568,34 @@
 
   .header-top {
     padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-brand {
+    flex: 0 1 auto;
+  }
+
+  .brand-text {
+    font-size: 1.1rem;
   }
 
   .header-nav {
-    gap: 1rem;
+    display: flex;
+    gap: 0;
+    flex: 0 0 auto;
   }
 
   .header-nav a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
+    display: none;
+  }
+
+  .lang-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    min-width: 45px;
+    font-weight: 700;
   }
 
   .header-logo {
