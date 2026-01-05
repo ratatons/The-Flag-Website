@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/The-Flag-Website/static/css/main.f9546472.css",
+    "main.js": "/The-Flag-Website/static/js/main.7802238f.js",
+    "static/media/WEB_BG.png": "/The-Flag-Website/static/media/WEB_BG.283cf523e3c042fa1dd5.png",
+    "static/media/Artboard_12.png": "/The-Flag-Website/static/media/Artboard_12.a20065959317f16eafcf.png",
+    "static/media/logo.png": "/The-Flag-Website/static/media/logo.ff87ddb4e165330506ce.png",
+    "static/media/BerlinSansFB-Bold.woff": "/The-Flag-Website/static/media/BerlinSansFB-Bold.613358c5f23881c06f0a.woff",
+    "static/media/BerlinSansFB-Bold.woff2": "/The-Flag-Website/static/media/BerlinSansFB-Bold.c9eeafa84db35bfba754.woff2",
+    "index.html": "/The-Flag-Website/index.html",
+    "main.f9546472.css.map": "/The-Flag-Website/static/css/main.f9546472.css.map",
+    "main.7802238f.js.map": "/The-Flag-Website/static/js/main.7802238f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9546472.css",
+    "static/js/main.7802238f.js"
+  ]
+}
