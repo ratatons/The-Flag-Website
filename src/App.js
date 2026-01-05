@@ -1,0 +1,213 @@
+import React, { useRef, useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
+import './App.css';
+import LoadingPage from './components/LoadingPage';
+import logoImage from './logo.png';
+import backgroundImage from './WEB_BG.png';
+
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [sending, setSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState({ type: '', message: '' });
+  const [timestamp] = useState(() => new Date().toLocaleString());
+  const contactRef = useRef(null);
+  const formRef = useRef(null);
+
+  const EMAILJS_SERVICE_ID = 'service_hvhsebk';
+  const EMAILJS_TEMPLATE_ID = 'template_hz0fm4p';
+  const EMAILJS_PUBLIC_KEY = 'VzKKLcJI9VSsA6w5M';
+
+  useEffect(() => {
+    // Simulate loading time (2 seconds)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    setSending(true);
+    setSendStatus({ type: '', message: '' });
+
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setSendStatus({ type: 'success', message: 'Message sent! We will get back to you soon.' });
+        formRef.current.reset();
+      })
+      .catch(() => {
+        setSendStatus({ type: 'error', message: 'There was a problem sending. Please try again.' });
+      })
+      .finally(() => setSending(false));
+  };
+
+  return (
+    <div className="App">
+      {/* Loading Page */}
+      <LoadingPage fadeOut={!isLoading} />
+      {/* Hero Section with Background */}
+      <section className="hero-section">
+        <div className="background-container">
+          <img src={backgroundImage} alt="Background" className="background-image" />
+          <div className="background-fade"></div>
+        </div>
+        
+        <div className="content-container">
+          {/* Top Navigation Bar */}
+          <header className="header-top">
+            <div className="header-brand">
+              <img 
+                src={logoImage} 
+                alt="Logo" 
+                className="header-logo"
+              />
+              <span className="brand-text">Side Quest Team</span>
+            </div>
+            <nav className="header-nav">
+              <a href="#who-we-are">Who We Are</a>
+              <a href="#contact" onClick={handleContactClick}>Contact us</a>
+            </nav>
+          </header>
+
+
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="who-section" id="who-we-are">
+        <div className="who-bg"></div>
+        <div className="who-overlay"></div>
+        <div className="who-content">
+          <div className="who-card">
+            <div className="who-text">
+              <h2>Who We Are</h2>
+              <p>Side Quest is run by people who are tired of watching lives get lost just because the right info isn’t out there. We’re bored, fed up, and honestly pissed that this keeps happening when it doesn’t have to.</p>
+              <p>We're here to change that — no excuses, no waiting around. But we can't do it solo. We need you. 🏖️</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="contact-section" id="contact" ref={contactRef}>
+        <div className="contact-container">
+          <h2 className="contact-title">Get in Touch</h2>
+          <p className="contact-description">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+          
+          <form className="contact-form" ref={formRef} onSubmit={handleSendEmail}>
+            <input type="hidden" name="time" value={timestamp} />
+            <div className="form-group">
+              <input 
+                type="text" 
+                placeholder="Your Name" 
+                className="form-input"
+                name="name"
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <input 
+                type="email" 
+                placeholder="Your Email" 
+                className="form-input"
+                name="email"
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <input 
+                type="tel" 
+                placeholder="Phone Number (Optional)" 
+                className="form-input"
+                name="phone"
+              />
+            </div>
+            
+            <div className="form-group">
+              <textarea 
+                placeholder="Your Message" 
+                className="form-textarea"
+                rows="6"
+                name="message"
+                required
+              ></textarea>
+            </div>
+            
+            <button type="submit" className="submit-button" disabled={sending}>
+              {sending ? 'Sending…' : 'Send Message'}
+            </button>
+
+            {sendStatus.message && (
+              <div className={`status-message ${sendStatus.type}`}>
+                {sendStatus.message}
+              </div>
+            )}
+          </form>
+        </div>
+      </section>
+
+      {/* Download App Section */}
+      <section className="download-section">
+        <div className="download-container">
+          <h2 className="download-title">Download Our App</h2>
+          <p className="download-description">Get the best experience on mobile. Available now on iOS and Android.</p>
+          
+          <div className="download-buttons">
+            <a href="#" className="store-button google-play" target="_blank" rel="noopener noreferrer">
+              <div className="button-content">
+                <svg className="store-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                </svg>
+                <div className="button-text">
+                  <span className="button-label">GET IT ON</span>
+                  <span className="button-store">Google Play</span>
+                </div>
+              </div>
+            </a>
+            
+            <a href="#" className="store-button app-store" target="_blank" rel="noopener noreferrer">
+              <div className="button-content">
+                <svg className="store-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
+                </svg>
+                <div className="button-text">
+                  <span className="button-label">Download on the</span>
+                  <span className="button-store">App Store</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <a href="#privacy">Privacy Policy</a>
+        <div className="social-links">
+          <a href="#facebook">Facebook</a>
+          <span>/</span>
+          <a href="https://www.instagram.com/yourhandle/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <span>/</span>
+          <a href="#linkedin">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default App;
