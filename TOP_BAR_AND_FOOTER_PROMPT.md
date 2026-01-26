@@ -80,7 +80,7 @@
   <div className="social-links">
     <a href="#facebook">Facebook</a>
     <span>/</span>
-    <a href="https://www.instagram.com/yourhandle/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.instagram.com/sidequest_dz/" target="_blank" rel="noopener noreferrer">Instagram</a>
     <span>/</span>
     <a href="#linkedin">LinkedIn</a>
   </div>

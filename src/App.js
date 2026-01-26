@@ -82,6 +82,23 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Set favicon to project logo so the tab shows the app logo
+  useEffect(() => {
+    try {
+      const setFavicon = () => {
+        const existing = document.querySelector("link[rel~='icon']");
+        const link = existing || document.createElement('link');
+        link.type = 'image/png';
+        link.rel = 'icon';
+        link.href = logoImage;
+        if (!existing) document.head.appendChild(link);
+      };
+      setFavicon();
+    } catch (err) {
+      // ignore in non-browser environments
+    }
+  }, []);
+
   const handleContactClick = (e) => {
     e.preventDefault();
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -124,13 +141,15 @@ function App() {
         <div className="content-container">
           {/* Top Navigation Bar */}
           <header className="header-top">
-            <div className="header-brand">
+            <div className="header-brand" draggable={false} onDragStart={(e) => e.preventDefault()} onMouseDown={(e) => e.preventDefault()}>
               <img 
                 src={logoImage} 
                 alt="Logo" 
                 className="header-logo"
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
               />
-              <span className="brand-text">Side Quest Team</span>
+              <span className="brand-text" draggable={false} onDragStart={(e) => e.preventDefault()}>Side Quest Team</span>
             </div>
             <nav className="header-nav">
               <a href="#who-we-are">{t.whoWeAre}</a>
@@ -259,11 +278,10 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <a href="#privacy">{t.privacyPolicy}</a>
         <div className="social-links">
           <a href="#facebook">Facebook</a>
           <span>/</span>
-          <a href="https://www.instagram.com/yourhandle/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.instagram.com/sidequest_dz/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <span>/</span>
           <a href="#linkedin">LinkedIn</a>
         </div>
