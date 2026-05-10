@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import './App.css';
 import LoadingPage from './components/LoadingPage';
 import logoImage from './logo.png';
+import headerlogo from './colored.png';
 import backgroundImage from './WEB_BG.png';
 
 function App() {
@@ -143,7 +144,7 @@ function App() {
           <header className="header-top">
             <div className="header-brand" draggable={false} onDragStart={(e) => e.preventDefault()} onMouseDown={(e) => e.preventDefault()}>
               <img 
-                src={logoImage} 
+                src={headerlogo} 
                 alt="Logo" 
                 className="header-logo"
                 draggable={false}
