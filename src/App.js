@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 import './App.css';
 import LoadingPage from './components/LoadingPage';
 import logoImage from './logo.png';
-import headerlogo from './colored.png';
+import headerlogo from './Colored.png';
 import backgroundImage from './WEB_BG.png';
 
 function App() {
