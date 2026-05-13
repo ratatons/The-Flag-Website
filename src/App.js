@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './App.css';
 import LoadingPage from './components/LoadingPage';
-import logoImage from './logo.png';
-import backgroundImage from './WEB_BG.png';
+import logoImage from './Colored.png';
+import backgroundImage from './new_bg.png';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
