@@ -2,8 +2,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './App.css';
 import LoadingPage from './components/LoadingPage';
-import logoImage from './Colored.png';
-import backgroundImage from './new_bg.png';
+import logoImage from './logo.png';
+import headerlogo from './Colored.png';
+import backgroundImage from './WEB_BG.png';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -143,7 +144,7 @@ function App() {
           <header className="header-top">
             <div className="header-brand" draggable={false} onDragStart={(e) => e.preventDefault()} onMouseDown={(e) => e.preventDefault()}>
               <img 
-                src={logoImage} 
+                src={headerlogo} 
                 alt="Logo" 
                 className="header-logo"
                 draggable={false}
