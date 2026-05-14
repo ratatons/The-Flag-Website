@@ -12,6 +12,7 @@ function App() {
   const [sendStatus, setSendStatus] = useState({ type: '', message: '' });
   const [timestamp] = useState(() => new Date().toLocaleString());
   const [language, setLanguage] = useState('en');
+  const [featureEmail, setFeatureEmail] = useState('');
   const contactRef = useRef(null);
   const formRef = useRef(null);
 
@@ -43,7 +44,9 @@ function App() {
       downloadOn: 'Download on the',
       appStore: 'App Store',
       privacyPolicy: 'Privacy Policy',
-      langButton: 'FR'
+      langButton: 'AR',
+      featureDescription: 'A smart application aimed at guiding citizens towards safer beaches based on a flag system and real-time information.',
+      featureEmail: 'Enter your email'
     },
     fr: {
       whoWeAre: 'Qui sommes-nous',
@@ -68,7 +71,35 @@ function App() {
       downloadOn: 'Télécharger sur',
       appStore: 'App Store',
       privacyPolicy: 'Politique de confidentialité',
-      langButton: 'EN'
+      langButton: 'EN',
+      featureDescription: 'Une application intelligente visant à guider les citoyens vers les plages les plus sûres en fonction d\'un système de drapeaux et d\'informations en temps réel.',
+      featureEmail: 'Entrez votre email'
+    },
+    ar: {
+      whoWeAre: 'من نحن',
+      contactUs: 'تواصل معنا',
+      whoWeAreTitle: 'من نحن',
+      whoWeAreText1: "جانب كويست يديره أشخاص تعبوا من رؤية الأرواح تضيع فقط لأن المعلومات الصحيحة غير متوفرة. نحن ملل وغاضبون من استمرار هذا عندما لا يكون ضروريا.",
+      whoWeAreText2: "نحن هنا لتغيير ذلك — بدون أعذار، بدون انتظار. لكن لا يمكننا فعل ذلك بمفردنا. نحتاج إليك. 🏖️",
+      getInTouch: 'تواصل معنا',
+      contactDescription: "نود أن نسمع منك. أرسل لنا رسالة وسنرد عليك في أقرب وقت ممكن.",
+      yourName: 'اسمك',
+      yourEmail: 'بريدك الإلكتروني',
+      phoneNumber: 'رقم الهاتف (اختياري)',
+      yourMessage: 'رسالتك',
+      sendMessage: 'إرسال الرسالة',
+      sending: 'جاري الإرسال…',
+      successMessage: 'تم إرسال الرسالة! سنرد عليك قريبا.',
+      errorMessage: 'حدثت مشكلة في الإرسال. يرجى المحاولة مرة أخرى.',
+      downloadApp: 'حمل تطبيقنا',
+      downloadDescription: 'احصل على أفضل تجربة على الهاتف المحمول. متاح قريبا.',
+      getItOn: 'احصل عليه من',
+      googlePlay: 'Google Play',
+      downloadOn: 'حمل من',
+      appStore: 'App Store',
+      privacyPolicy: 'سياسة الخصوصية',
+      langButton: 'EN',
+      featureDescription: 'تطبيق ذكي يهدف إلى توجيه المواطنين نحو الشواطئ الأكثر أمناً اعتماداً على نظام الرايات والمعلومات الفورية.'
     }
   };
 
@@ -157,7 +188,7 @@ function App() {
               <a href="#contact" onClick={handleContactClick}>{t.contactUs}</a>
               <button 
                 className="lang-button" 
-                onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
+                onClick={() => setLanguage(language === 'en' ? 'ar' : language === 'ar' ? 'fr' : 'en')}
               >
                 {t.langButton}
               </button>
@@ -178,6 +209,29 @@ function App() {
               <h2>{t.whoWeAreTitle}</h2>
               <p>{t.whoWeAreText1}</p>
               <p>{t.whoWeAreText2}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section */}
+      <section className="feature-section">
+        <div className="feature-container">
+          <div className="feature-content">
+            <div className="feature-text">
+              <p className="feature-description">{t.featureDescription}</p>
+            </div>
+            <div className="feature-input-group">
+              <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M17,13H13V17H11V13H7V11H11V7H13V11H17V13Z" />
+              </svg>
+              <input 
+                type="email" 
+                placeholder={t.featureEmail}
+                className="feature-input"
+                value={featureEmail}
+                onChange={(e) => setFeatureEmail(e.target.value)}
+              />
             </div>
           </div>
         </div>
