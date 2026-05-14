@@ -5,6 +5,8 @@ import LoadingPage from './components/LoadingPage';
 import logoImage from './logo.png';
 import headerlogo from './Colored.png';
 import backgroundImage from './WEB_BG.png';
+import section3Image from './section3.png';
+import observerImage from './observer.png';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -204,7 +206,7 @@ function App() {
           <div className="feature-content">
             <div className="feature-logo-wrapper">
               <img 
-                src={logoImage} 
+                src={headerlogo} 
                 alt="Feature Logo" 
                 className="feature-logo"
               />
@@ -213,6 +215,28 @@ function App() {
               <p className="feature-description">{t.featureDescription}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Section 3 Image Section */}
+      <section className="section3-section">
+        <div className="section3-container">
+          <img 
+            src={section3Image} 
+            alt="Section 3" 
+            className="section3-image"
+          />
+        </div>
+      </section>
+
+      {/* Observer Section */}
+      <section className="observer-section">
+        <div className="observer-container">
+          <img 
+            src={observerImage} 
+            alt="Observer" 
+            className="observer-image"
+          />
         </div>
       </section>
 
