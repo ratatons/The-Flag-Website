@@ -9,7 +9,7 @@
 }
 
 :root {
-  --primary-color: #D7A33A;
+  --primary-color: #0096FF;
   --secondary-color: #ffffff;
   --bg-dark: #000000;
   --glass-bg: rgba(255, 255, 255, 0.08);
@@ -38,9 +38,9 @@
 }
 
 @keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(215, 163, 58, 0.2); }
-  50% { box-shadow: 0 0 20px rgba(215, 163, 58, 0.4); }
-  100% { box-shadow: 0 0 5px rgba(215, 163, 58, 0.2); }
+  0% { box-shadow: 0 0 5px rgba(0, 150, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 150, 255, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(0, 150, 255, 0.2); }
 }
 
 /* Hero Section with Background */
@@ -135,7 +135,7 @@
 .who-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-  border-color: rgba(215, 163, 58, 0.3);
+  border-color: rgba(0, 150, 255, 0.3);
 }
 
 .who-logo {
@@ -152,7 +152,7 @@
   font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 0%, #D7A33A 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #0096FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -350,7 +350,7 @@
   background: var(--primary-color);
   color: #000;
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(215, 163, 58, 0.4);
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.4);
 }
 
 .lang-button:active {
@@ -392,7 +392,7 @@
   padding: 8rem 2rem;
   position: relative;
   z-index: 2;
-  background: radial-gradient(circle at top right, rgba(215, 163, 58, 0.05), transparent 40%);
+  background: radial-gradient(circle at top right, rgba(0, 150, 255, 0.05), transparent 40%);
 }
 
 .contact-container {
@@ -453,7 +453,7 @@
   outline: none;
   border-color: var(--primary-color);
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 4px rgba(215, 163, 58, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 150, 255, 0.1);
 }
 
 .form-input::placeholder,
@@ -485,8 +485,8 @@
 
 .submit-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(215, 163, 58, 0.3);
-  background: #eebb55;
+  box-shadow: 0 10px 30px rgba(0, 150, 255, 0.3);
+  background: #0096FF;
 }
 
 .submit-button:active {
