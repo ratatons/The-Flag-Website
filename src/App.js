@@ -12,7 +12,6 @@ function App() {
   const [sendStatus, setSendStatus] = useState({ type: '', message: '' });
   const [timestamp] = useState(() => new Date().toLocaleString());
   const [language, setLanguage] = useState('en');
-  const [featureEmail, setFeatureEmail] = useState('');
   const contactRef = useRef(null);
   const formRef = useRef(null);
 
@@ -199,6 +198,24 @@ function App() {
         </div>
       </section>
 
+      {/* Feature Section */}
+      <section className="feature-section">
+        <div className="feature-container">
+          <div className="feature-content">
+            <div className="feature-logo-wrapper">
+              <img 
+                src={logoImage} 
+                alt="Feature Logo" 
+                className="feature-logo"
+              />
+            </div>
+            <div className="feature-text">
+              <p className="feature-description">{t.featureDescription}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who We Are Section */}
       <section className="who-section" id="who-we-are">
         <div className="who-bg"></div>
@@ -209,29 +226,6 @@ function App() {
               <h2>{t.whoWeAreTitle}</h2>
               <p>{t.whoWeAreText1}</p>
               <p>{t.whoWeAreText2}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Section */}
-      <section className="feature-section">
-        <div className="feature-container">
-          <div className="feature-content">
-            <div className="feature-text">
-              <p className="feature-description">{t.featureDescription}</p>
-            </div>
-            <div className="feature-input-group">
-              <svg className="feature-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M17,13H13V17H11V13H7V11H11V7H13V11H17V13Z" />
-              </svg>
-              <input 
-                type="email" 
-                placeholder={t.featureEmail}
-                className="feature-input"
-                value={featureEmail}
-                onChange={(e) => setFeatureEmail(e.target.value)}
-              />
             </div>
           </div>
         </div>
